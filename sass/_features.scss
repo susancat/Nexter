@@ -1,0 +1,31 @@
+.features {
+    grid-column: center-start / center-end;
+    
+    margin: 15rem 0;
+
+    display: grid;//subgrid--child's grid snapping in parent's grid
+    // grid-template-columns: repeat(3, 1fr);//implicit rows in auto
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 6rem;
+    align-items: start;//move the text up and in a line
+}
+
+.feature {//reusable,so put it independently,inside each feature
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    //min-content for icon, and the rest space;implicit rows
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 2.5rem;
+
+    &__icon {
+        fill: $color-primary;//fill for color of svg
+        width: 4.5rem;
+        height: 4.5rem;
+        grid-row: 1 / span 2;//it's better to set grid-col for text
+        // transform: translateY();
+    }
+
+    &__text {
+        font-size: 1.7rem;
+    }
+}
